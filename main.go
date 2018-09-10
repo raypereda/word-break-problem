@@ -18,7 +18,7 @@ func main() {
 		"elephant": true,
 	}
 
-	// TODO: consider a dictionary that allow more than one way to make up
+	// TODO: consider a dictionary that allows more than one way to make up
 	// a sentence. Then return all the possible answers, and perhaps rank them.
 
 	cache = make(map[string]bool)
