@@ -1,0 +1,25 @@
+- m + onkeytigerdog
+- mo + nkeytigerdog
+- mon + keytigerdog
+- monk + eytigerdog
+- monke + ytigerdog
+- monkey + tigerdog
+-- t + igerdog
+-- ti + gerdog
+-- tig + erdog
+-- tige + rdog
+-- tiger + dog
+--- d + og
+--- do + g
+--- dog + 
+--- found it
+
+words:  dog
+-- found it
+
+words:  dog tiger
+- found it
+
+words:  dog tiger monkey
+dog tiger monkey
+cache map[string]bool{"monkeytigerdog":true, "dog":true, "tigerdog":true} 

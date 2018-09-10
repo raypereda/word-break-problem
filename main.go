@@ -40,7 +40,7 @@ var words []string        // the sequence of words that make of a sentence
 
 // hasWords returns true if there is a sequence of words that make up the sentence
 func hasWords(sentence string) bool {
-	// n = len(sentence), O(1) work for base cases, cache hit or len = 0
+	// T(1) = O(1) work for base cases, cache hit or len = 0
 	answer, inCache := cache[sentence]
 	if inCache {
 		return answer
@@ -51,15 +51,20 @@ func hasWords(sentence string) bool {
 		return true
 	}
 
-	// n number of iterations
+	// n = len(sentence)
+	// T(n) = k + T(n-1) + T(n-2) + T(n-3) + ... T(1) = O(n^2)
+
+	// If we consider the hash for dictionary lookup is O(n)
+	// T(n) = k + 1 + T(n-1) + 2 + T(n-2) + 3 + T(n-3) + ... (n-1) + T(1) = O(2*n^2) = O(n^2)
 	for i := 1; i <= len(sentence); i++ {
 
 		p := sentence[:i] // prefix
 		s := sentence[i:] // suffix
 		fmt.Println(strings.Repeat("-", r), p, "+", s)
 
-		// At worst, len(s) = len(sentence) - 1, so O(n-1) work
-
+		// At worst, the prefix is len(s) = len(sentence) - 1, so O(n-1) work
+		// Time to check if prefix is in the dictionary, compute the hash of sequence of chars
+		// can use a rolling hash to only do constant work for each appended character.
 		if d[p] && hasWords(s) {
 			fmt.Print(strings.Repeat("-", r), " found it\n\n")
 			words = append(words, p)
@@ -69,8 +74,6 @@ func hasWords(sentence string) bool {
 			return true
 		}
 	}
-
-	// f(n) = (n-1) * f(n-1) = O(n^2)
 
 	fmt.Print(strings.Repeat("-", r), " did not find it\n\n")
 	if len(words) > 0 {
