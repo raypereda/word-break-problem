@@ -52,7 +52,9 @@ func hasWords(sentence string) bool {
 	}
 
 	// n = len(sentence)
-	// T(n) = k + T(n-1) + T(n-2) + T(n-3) + ... T(1) = O(n^2)
+	// T(n)   = k +        T(n-1) + T(n-2) + T(n-3) + ... T(1) = k + Sum T(i) for 1 to n-1
+	// T(n+1) = k + T(n) + T(n-1) + T(n-2) +          ... T(1)
+	// T(n+1) - T(n) = T(n) ==> T(n+1) = 2T(n) ==> O(n**2)
 
 	// If we consider the hash for dictionary lookup is O(n)
 	// T(n) = k + 1 + T(n-1) + 2 + T(n-2) + 3 + T(n-3) + ... (n-1) + T(1) = O(2*n^2) = O(n^2)
