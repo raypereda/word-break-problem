@@ -76,8 +76,7 @@ func hasWords(sentence string) bool {
 			return true
 		}
 	}
-
-	fmt.Print(strings.Repeat("-", r), " did not find it\n\n")
+	fmt.Print(strings.Repeat("-", r), " The dictionary cannot make up the sentence.\n\n")
 	if len(words) > 0 {
 		words = words[:len(words)-1]
 	}
