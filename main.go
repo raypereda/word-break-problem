@@ -12,10 +12,13 @@ var d map[string]bool // dictionary
 
 func main() {
 	d = map[string]bool{
-		"dog":      true,
-		"tiger":    true,
-		"monkey":   true,
-		"elephant": true,
+		"i":     true,
+		"like":  true,
+		"sam":   true,
+		"sung":  true,
+		"mango": true,
+		"man":   true,
+		"go":    true,
 	}
 
 	// TODO: consider a dictionary that allows more than one way to make up
@@ -23,12 +26,14 @@ func main() {
 
 	cache = make(map[string]bool)
 
-	s := "monkeytigerdog"
+	s := "ilikesamsungmango"
+
 	if hasWords(s) {
 		fmt.Println(strings.Join(words, " "))
 	} else {
 		fmt.Println("Not separatable into words.")
 	}
+
 	fmt.Printf("cache %#+v \n", cache)
 
 }
