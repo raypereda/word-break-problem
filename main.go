@@ -69,7 +69,7 @@ func hasWords(sentence string) bool {
 		// can use a rolling hash to only do constant work for each appended character.
 		if d[p] && hasWords(s) {
 			fmt.Print(strings.Repeat("-", r), " found it\n\n")
-			words = append(words, p)
+			words = append([]string{p}, words...) // prepend
 			fmt.Println("words: ", strings.Join(words, " "))
 			r--
 			cache[sentence] = true
